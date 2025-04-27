@@ -28,9 +28,9 @@ services:
       retries: 3
     command: ["--max_allowed_packet=1G"]
 
-  gdfuture-server:
-    image: gdfuture/gdfuture-server:27.02.2025.19.48.54
-    container_name: gdfuture-server
+  stock-manager-server:
+    image: stockamanager/stock-manager-server:latest
+    container_name: stock-manager-server
     env_file:
       - .env.prod
     environment:
@@ -44,9 +44,9 @@ services:
         condition: service_healthy
   
 
-  gdfuture-client:
-     image: gdfuture/gdfuture-client:03.03.2025.13.45.18
-     container_name: gdfuture-client
+  stock-manager-client:
+     image: stockamanager/stock-manager-client:latest
+     container_name: stock-manager-client
      environment:
        REACT_APP_ENV: production
      ports:
@@ -54,16 +54,5 @@ services:
      networks:
        - mynet
      depends_on:
-       - gdfuture-server
+       - stock-manager-server
 
-  gdfuture-management:
-     image: gdfuture/gdfuture-management:03.03.2025.19.40.59
-     container_name: gdfuture-management
-     environment:
-       REACT_APP_ENV: production
-     ports:
-       - "3001:3001"
-     networks:
-       - mynet
-     depends_on:
-       - gdfuture-server
