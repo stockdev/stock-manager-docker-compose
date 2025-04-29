@@ -29,7 +29,7 @@ services:
     command: ["--max_allowed_packet=1G"]
 
   stock-manager-server:
-    image: stockamanager/stock-manager-server:27.04.2025.15.22.40
+    image: stockamanager/stock-manager-server:29.04.2025.10.17.41
     container_name: stock-manager-server
     env_file:
       - .env.prod
