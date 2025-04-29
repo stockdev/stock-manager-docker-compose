@@ -45,7 +45,7 @@ services:
   
 
   stock-manager-client:
-     image: stockamanager/stock-manager-client:27.04.2025.13.19.45
+     image: stockamanager/stock-manager-client:29.04.2025.12.31.39
      container_name: stock-manager-client
      environment:
        REACT_APP_ENV: production
